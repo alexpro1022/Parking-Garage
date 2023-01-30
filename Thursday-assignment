@@ -1,0 +1,57 @@
+class Parking():
+   
+
+    def __init__(self, tickets = 100, parkingSpaces = 100):
+        self.tickets = tickets
+        self.parkingSpaces = parkingSpaces
+        self.parking_Payment = []
+        self.ticket_payment = []
+    
+    def take_Ticket(self):
+        print("Please take a ticket")
+        self.tickets += -1
+        self.parkingSpaces += -1
+
+    def pay_Ticket(self):
+        if len(self.parking_Payment) == False:
+            self.ticket_payment = input("Please pay for your parking (Enter 10$) ")
+        
+            self.ticket_payment == '10$' or '10'
+            self.parking_Payment.append(self.ticket_payment)
+            pass
+        if  len(self.parking_Payment) == True:
+
+            print("Thank you, you have 15 minutes to leave")
+        else:
+            print("Try again, enter 10$")
+            return 0
+            
+    def paid_Ticket(self):
+        if len(self.parking_Payment) == True:
+            print("Thank you, Have a nice day")
+            self.tickets += 1
+            self.parkingSpaces += 1
+
+        elif len(self.parking_Payment) == False:
+            print("You still have to pay")
+            
+
+
+leaving = Parking()
+
+def run():
+    leaving.take_Ticket()
+
+    while True:
+        response = input("Have you paid for your parking? (Yes / No) ")
+        if response.title() == 'Yes':
+            leaving.paid_Ticket()
+            break
+        elif response.title() == 'No':
+            leaving.pay_Ticket()
+        else:
+            print("Please Enter Yes or No")
+        
+
+run()
+    
